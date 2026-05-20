@@ -1,0 +1,5 @@
+list operations
+string operations
+functions
+dictionary operations
+file handling
