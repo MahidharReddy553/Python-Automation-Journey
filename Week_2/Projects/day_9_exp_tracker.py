@@ -8,7 +8,6 @@ def fetch_data(path):
     return d
 
 
-
 def view_data(data):
     print('-------------------------------------------------------')
     print("Expenses Data")
@@ -19,12 +18,12 @@ def view_data(data):
         print(i['exname'], '-', i['examt'])
     return data
 
+
 def add_expense(path, d, name, amt):
     d.append({'exname' : name, 'examt': float(amt)})
     with open(path, 'a') as f:
         f.write(name.capitalize()+' - '+str(amt)+'\n')
     return name, amt
-    
 
 
 def calculate_exps(d):
@@ -193,4 +192,4 @@ while True:
             print("No data found to be saved !!")
 
     else:
-        print("Invalid input !! please select beteen 0 - 7 !!")
+        print("Invalid input !! please select between 0 - 7 !!")
