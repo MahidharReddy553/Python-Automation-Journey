@@ -187,3 +187,6 @@ while True:
 
     except ValueError:
         print("The choice must be an integer")
+        break
+    finally:
+        print("The program terminated successfully!!")
