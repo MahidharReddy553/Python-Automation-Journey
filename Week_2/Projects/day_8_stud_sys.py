@@ -90,94 +90,100 @@ while True:
           7. Find Topper
           8. Save data
           0. Exit""")
-    
-    c = int(input("Enter your choice(0-8) : "))
+    try:
+        c = int(input("Enter your choice(0-8) : "))
 
-    if c == 0:
-        break
-
-
-    elif c == 1:
-        print('-----------')
-        print('Name | Marks')
-        print('----------')
-        for i in d:
-            print(i['name'], '=', i['marks'])
+        if c == 0:
+            break
 
 
-    elif c == 2:
-        name = input("Enter the student's name : ").strip()
-        s = search_stud(d, name)
-        if not s:
-            marks = input(f"Enter the marks of {name} : ").strip()
-            stud = add_data(path, name, marks)
-            print(f"Student with name : '{stud[0]}' and marks : '{stud[1]}' added successfully")
-        else:
-            print(f"Student with name : '{name}' already exists !!!")
-            print('Try again !!')
-            
-
-    elif c == 3:
-        name = input("Enter the name of the student you want to search : ").strip()
-        stud = search_stud(d, name)
-        if stud:
-            print('Name :', stud['name'], '\n'+'Marks :', stud['marks'])
-        else:
-            print(f"No student found with name : {name}")
+        elif c == 1:
+            print('-----------')
+            print('Name | Marks')
+            print('----------')
+            for i in d:
+                print(i['name'], '=', i['marks'])
 
 
-    elif c == 4:
-        name = input("Enter the student name : ")
-        s = search_stud(d, name)
-        if s:
-            marks = input(f"Enter the marks of {name} : ").strip()
-            stud = update_marks(path, name, marks)
-            print(f"{stud['name']}'s marks updated to marks : '{marks}' successfully")
-        else:
-            print(f"Student with name : '{name}' not exists !!!")
-            print('Try again !!')
-
-
-    elif c == 5:
-        name = input("Enter the student name you want to delete : ")
-        s = search_stud(d, name)
-        if s:
-            stud = delete_stud(path, name)
-            print(f"Student with name : '{name}' deleted successfully")
-        else:
-            print(f"Student with name : '{name}' not exists !!!!")
-
-
-    elif c == 6:
-        if d:
-            avg = average_marks(d)
-            print(f"The average marks of the class is : {avg}")
-        else:
-            print("NO students data found")
-
-
-    elif c == 7:
-        ts = get_max_marks(d)
-        studs = get_name_by_marks(d, ts)
-        if studs:
-            if len(studs) == 1:
-                print('The topper of the calss is :')
-                print('Name :', studs[0]['name'])
-                print('Marks :', studs[0]['marks'])
+        elif c == 2:
+            name = input("Enter the student's name : ").strip()
+            s = search_stud(d, name)
+            if not s:
+                try:
+                    marks = int(input(f"Enter the marks of {name} : ").strip())
+                    stud = add_data(path, name, str(marks))
+                    print(f"Student with name : '{stud[0]}' and marks : '{stud[1]}' added successfully")
+                except ValueError:
+                    print("The marks must be an integer")
             else:
-                print("The toppers of the class are : ")
-                for i in studs:
-                    print('----------------------')
-                    print('Name :', i['name'])
-                    print('Marks :', i['marks'])
-        else:
-            print('No data found !!!')
+                print(f"Student with name : '{name}' already exists !!!")
+                print('Try again !!')
+                
+
+        elif c == 3:
+            name = input("Enter the name of the student you want to search : ").strip()
+            stud = search_stud(d, name)
+            if stud:
+                print('Name :', stud['name'], '\n'+'Marks :', stud['marks'])
+            else:
+                print(f"No student found with name : {name}")
 
 
-    elif c == 8:
-        if d:
-            data = save_data(path, d)
-            print('the data saved successfully in the file !!!')
+        elif c == 4:
+            name = input("Enter the student name : ")
+            s = search_stud(d, name)
+            if s:
+                marks = input(f"Enter the marks of {name} : ").strip()
+                stud = update_marks(path, name, marks)
+                print(f"{stud['name']}'s marks updated to marks : '{marks}' successfully")
+            else:
+                print(f"Student with name : '{name}' not exists !!!")
+                print('Try again !!')
 
-        else:
-            print('No data is found !!')
+
+        elif c == 5:
+            name = input("Enter the student name you want to delete : ")
+            s = search_stud(d, name)
+            if s:
+                stud = delete_stud(path, name)
+                print(f"Student with name : '{name}' deleted successfully")
+            else:
+                print(f"Student with name : '{name}' not exists !!!!")
+
+
+        elif c == 6:
+            if d:
+                avg = average_marks(d)
+                print(f"The average marks of the class is : {avg}")
+            else:
+                print("NO students data found")
+
+
+        elif c == 7:
+            ts = get_max_marks(d)
+            studs = get_name_by_marks(d, ts)
+            if studs:
+                if len(studs) == 1:
+                    print('The topper of the calss is :')
+                    print('Name :', studs[0]['name'])
+                    print('Marks :', studs[0]['marks'])
+                else:
+                    print("The toppers of the class are : ")
+                    for i in studs:
+                        print('----------------------')
+                        print('Name :', i['name'])
+                        print('Marks :', i['marks'])
+            else:
+                print('No data found !!!')
+
+
+        elif c == 8:
+            if d:
+                data = save_data(path, d)
+                print('the data saved successfully in the file !!!')
+
+            else:
+                print('No data is found !!')
+
+    except ValueError:
+        print("The choice must be an integer")
