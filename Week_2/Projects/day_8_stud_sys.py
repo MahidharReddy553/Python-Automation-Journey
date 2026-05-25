@@ -100,7 +100,7 @@ while True:
         elif c == 1:
             print('-----------')
             print('Name | Marks')
-            print('----------')
+            print('-----------')
             for i in d:
                 print(i['name'], '=', i['marks'])
 

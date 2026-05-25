@@ -37,7 +37,7 @@ class Students:
         self.students.append(self.Student(name, marks))
         print("Student added successfully")
 
-    def update_stud(self, name, marks):
+    def update_stud_marks(self, name, marks):
         for i in self.students:
             if i.get_name() == name:
                 i.set_marks(marks)
@@ -57,4 +57,8 @@ studs.add_student('PB', 100)
 studs.view_studs()
 print('-----------------------------')
 studs.delete_stud('bvns')
+studs.view_studs()
+print('---------------------------')
+
+studs.update_stud_marks('PB', 90)
 studs.view_studs()
