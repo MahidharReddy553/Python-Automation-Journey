@@ -1,5 +1,3 @@
-
-
 class Students:
     class Student:
         def __init__(self, name, marks):
