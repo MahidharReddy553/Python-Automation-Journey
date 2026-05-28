@@ -1,0 +1,37 @@
+[
+    {
+        "name": "John",
+        "department": "QA",
+        "salary": 50000
+    },
+    {
+        "name": "Alice",
+        "department": "Development",
+        "salary": 65000
+    },
+    {
+        "name": "Bob",
+        "department": "HR",
+        "salary": 48000
+    },
+    {
+        "name": "Sophia",
+        "department": "Marketing",
+        "salary": 55000
+    },
+    {
+        "name": "David",
+        "department": "Support",
+        "salary": 47000
+    },
+    {
+        "name": "pb",
+        "department": "Hitech",
+        "salary": 90000
+    },
+    {
+        "name": "mahi",
+        "department": "Hitech",
+        "salary": 80000
+    }
+]
