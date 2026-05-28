@@ -1,0 +1,32 @@
+[
+    {
+        "Id": 1,
+        "Name": "Alice",
+        "Marks": 85
+    },
+    {
+        "Id": 2,
+        "Name": "Bob",
+        "Marks": 90
+    },
+    {
+        "Id": 3,
+        "Name": "Charlie",
+        "Marks": 78
+    },
+    {
+        "Id": 4,
+        "Name": "Diana",
+        "Marks": 92
+    },
+    {
+        "Id": 5,
+        "Name": "Ethan",
+        "Marks": 88
+    },
+    {
+        "Id": 6,
+        "Name": "Pb",
+        "Marks": 99
+    }
+]
