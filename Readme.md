@@ -98,11 +98,11 @@ Features:
 
 ---
 
-### 03 Employee Manager (Week 3)
+### 03 Employee Manager
 Features:
 - Manage employees using **JSON & CSV files**
 - Add, update, and delete employee records
 - Search employees by department or name
-- Demonstrates **file handling + automation concepts**
+- Demonstrates **file handling**
 
 ---
