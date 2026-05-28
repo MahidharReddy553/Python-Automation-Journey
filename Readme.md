@@ -1,7 +1,11 @@
-# Python Automation Journey
+# 🐍 Python Automation Journey
 
-This repository documents my journey of learning Python and preparing for Automation using Python-based tools and frameworks.
+This repository documents my journey of learning Python and preparing for **automation using Python-based tools and frameworks**.  
+It includes weekly practice files, mini projects, and automation experiments.
 
+---
+
+## 📚 Goals
 The goal of this repository is to build a strong foundation in:
 - Python programming
 - Problem solving
@@ -12,60 +16,60 @@ The goal of this repository is to build a strong foundation in:
 - Robot Framework
 - Automation framework development
 
-------------------------------------------------------------------------------
+---
 
-# Topics Covered
+## 🧩 Topics Covered
 
-## Python Basics
+### Python Basics
 - Variables
 - Data types
 - Operators
 - Conditions
 - Loops
 
-## Functions
+### Functions
 - Function creation
 - Parameters
 - Return statements
 - Reusable logic
 
-## Data Structures
+### Data Structures
 - Lists
 - Tuples
 - Sets
 - Dictionaries
 
-## String Handling
+### String Handling
 - String methods
 - Palindrome checking
 - Frequency counting
 - String manipulation problems
 
-## File Handling
+### File Handling
 - Reading files
 - Writing files
 - Appending data
 - Searching data in a file
 - Deleting data
 
-## Exception Handling
+### Exception Handling
 - try / except
 - Input validation
 - Error handling
 
-## Object-Oriented Programming (OOP)
+### Object-Oriented Programming (OOP)
 - Classes
 - Objects
 - Methods
-- super()
+- `super()`
 - Inheritance
 - Encapsulation
 
-------------------------------------------------------------------------------
+---
 
-# Projects
+## 🚀 Projects
 
-## 01 Student Management System
+### 01 Student Management System
 Features:
 - Add student
 - View students
@@ -76,11 +80,11 @@ Features:
 - Find topper
 - File storage support
 - Exception Handling
-- OOPS
+- OOP principles
 
+---
 
-
-## 02 Expense Tracker
+### 02 Expense Tracker
 Features:
 - Add expenses
 - View expenses
@@ -91,3 +95,14 @@ Features:
 - Filter expenses by range
 - File storage support
 - Exception Handling
+
+---
+
+### 03 Employee Manager (Week 3)
+Features:
+- Manage employees using **JSON & CSV files**
+- Add, update, and delete employee records
+- Search employees by department or name
+- Demonstrates **file handling + automation concepts**
+
+---
