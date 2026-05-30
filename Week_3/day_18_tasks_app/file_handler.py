@@ -14,7 +14,7 @@ def save_data(path, data):
         with open(path, 'w') as file:
             json.dump(data, file, indent=4)
 
-        print("Data saved successfully !!")
+        print("Data saved successfully with updated ids!!")
 
     except Exception as e:
         print("Some Exception Occured !!", e)
