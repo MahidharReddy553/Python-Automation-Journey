@@ -127,7 +127,7 @@ class TaskManager:
         if de:
             print("---------- deleted task -----------")
             view_data(de)
-        redefine_ids(self.__data)
+            redefine_ids(self.__data)
 
 
 
