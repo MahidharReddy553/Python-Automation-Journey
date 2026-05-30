@@ -1,7 +1,7 @@
 from task_manager import TaskManager
 
 
-path = r'D:\Python Automation Journey\Week_3\day_18_tasks_app\data\tasks.json'
+path = r'Week_3\day_18_tasks_app\data\tasks.json'
 
 task_mgr = TaskManager(path)
 tasks = task_mgr.load_tasks()

@@ -29,34 +29,41 @@
     },
     {
         "id": 5,
+        "title": "Read JSON Handling Documentation",
+        "description": "Understand json.load and json.dump methods",
+        "priority": "Low",
+        "status": "Completed"
+    },
+    {
+        "id": 6,
         "title": "Create Expense Tracker Refactor",
         "description": "Convert old project into modular structure",
         "priority": "Medium",
         "status": "In Progress"
     },
     {
-        "id": 6,
+        "id": 7,
         "title": "Setup Virtual Environment",
         "description": "Create and activate venv for Selenium project",
         "priority": "High",
         "status": "Completed"
     },
     {
-        "id": 7,
+        "id": 8,
         "title": "Practice Exception Handling",
         "description": "Handle invalid inputs in existing projects",
         "priority": "Medium",
         "status": "Pending"
     },
     {
-        "id": 8,
+        "id": 9,
         "title": "Prepare GitHub README",
         "description": "Document automation learning journey",
         "priority": "Low",
         "status": "Completed"
     },
     {
-        "id": 9,
+        "id": 10,
         "title": "Learn Requests Library",
         "description": "Practice API requests and JSON parsing",
         "priority": "High",

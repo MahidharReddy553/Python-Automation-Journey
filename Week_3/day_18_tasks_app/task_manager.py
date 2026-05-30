@@ -133,7 +133,7 @@ class TaskManager:
 
     
 if __name__ == '__main__':
-    tm = TaskManager(r'D:\Python Automation Journey\Week_3\day_18_tasks_app\data\tasks.json')
+    tm = TaskManager(r'Week_3\day_18_tasks_app\data\tasks.json')
     # tm.view_all_tasks()
     # tm.save_all_tasks()
     # print(tm.load_tasks())
