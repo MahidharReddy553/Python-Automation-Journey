@@ -27,6 +27,13 @@ print('-----------------------')
 
 if "secure area" in msg:
     print("Login Success")
+    driver.find_element(By.CLASS_NAME, 'button secondary radius').click()
+    msg = driver.find_element(By.id, 'flash')
+    if 'logged out' in msg.text:
+        print('logged out successfully')
+    else:
+        print('logout failed.')
+
 else:
     print("Login Failed")
 
