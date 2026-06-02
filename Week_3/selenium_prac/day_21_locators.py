@@ -11,7 +11,12 @@ print('url :', driver.current_url)
 time.sleep(1)
 
 # driver.find_element(By.XPATH, '//*[@id="username"]').send_keys("tomsmith")
-driver.find_element(By.NAME, 'username').send_keys("tomsmith")
+
+element = driver.find_element(By.NAME, 'username')
+element.send_keys("tomsmith123")
+element.clear()
+driver.find_element(By.NAME, 'username').send_keys('tomsmith')
+
 time.sleep(2)
 # driver.find_element(By.XPATH, '//*[@id="password"]').send_keys("SuperSecretPassword!")
 driver.find_element(By.CSS_SELECTOR, '#password').send_keys("SuperSecretPassword!")
