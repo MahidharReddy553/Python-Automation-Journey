@@ -32,9 +32,9 @@ output_perm_address = driver.find_element(By.CSS_SELECTOR, "#permanentAddress.mb
 
 def validate(actual, expected):
     if expected.lower() in actual.lower():
-        print("Test passed")
+        print(f"{expected} -> PASS")
     else:
-        print("Test Failed")
+        print(f"{expected} -> FAIL")
 
 validate(output_name.text, name)
 validate(output_email.text, email)
