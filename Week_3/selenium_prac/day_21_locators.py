@@ -13,6 +13,10 @@ time.sleep(1)
 # driver.find_element(By.XPATH, '//*[@id="username"]').send_keys("tomsmith")
 
 element = driver.find_element(By.NAME, 'username')
+print("name of username element :", element.get_attribute('name'))
+print("id of username element :", element.get_attribute('id'))
+
+
 element.send_keys("tomsmith123")
 element.clear()
 driver.find_element(By.NAME, 'username').send_keys('tomsmith')
