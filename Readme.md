@@ -65,6 +65,11 @@ The goal of this repository is to build a strong foundation in:
 - Inheritance
 - Encapsulation
 
+## Selenium Framework
+- Browser Operations
+- Locators
+- Waits and Synchronization
+
 ---
 
 ## 🚀 Projects
