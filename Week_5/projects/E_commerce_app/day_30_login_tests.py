@@ -3,7 +3,7 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
 from utils import wait_for_visibility, wait_for_clickable, validate_url, take_screenshot, validate_text
 
-def postive_login():
+def positive_login():
     with webdriver.Chrome() as driver:
         driver.maximize_window()
         driver.get("https://www.saucedemo.com/")
@@ -16,7 +16,7 @@ def postive_login():
         login = (By.ID, "login-button")
         login_ele = wait_for_clickable(driver, login)
         login_ele.click()
-        validate_url(driver.current_url, "inventory")
+        assert validate_url(driver.current_url, "inventory")
         take_screenshot(driver, "Positive_login")
 
 def negative_login():
@@ -35,7 +35,7 @@ def negative_login():
         validate_url(driver.current_url, "inventory")
         output = (By.CSS_SELECTOR, "#login_button_container > div > form > div.error-message-container.error > h3")
         output_ele = wait_for_visibility(driver, output)
-        validate_text(output_ele.text, 'Epic sadface: Username and password do not match any user in this service')
+        assert validate_text(output_ele.text, 'Epic sadface: Username and password do not match any user in this service')
         take_screenshot(driver, "Negative_login")
 
 
@@ -59,7 +59,6 @@ def logout():
             out = (By.ID, "logout_sidebar_link")
             out_ele = wait_for_clickable(driver, out)
             out_ele.click()
-
             if validate_url(driver.current_url, "https://www.saucedemo.com/"):
                 print("Logout Successfull!!")
                 take_screenshot(driver, "Postive_Logout")
