@@ -2,17 +2,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import os
 
-
-def wait_for_visibility(driver, element):
-    wait = WebDriverWait(driver, 10)
+DEFAULT_TIMEOUT = 10
+def wait_for_visibility(driver, element, timeout = DEFAULT_TIMEOUT):
+    wait = WebDriverWait(driver, timeout)
     return wait.until(EC.visibility_of_element_located((element)))
 
-def wait_for_clickable(driver, element):
-    wait = WebDriverWait(driver, 10)
+def wait_for_clickable(driver, element, timeout = DEFAULT_TIMEOUT):
+    wait = WebDriverWait(driver, timeout)
     return wait.until(EC.element_to_be_clickable((element)))
 
-def wait_for_presence(driver, element):
-    wait = WebDriverWait(driver, 10)
+def wait_for_presence(driver, element, timeout = DEFAULT_TIMEOUT):
+    wait = WebDriverWait(driver, timeout)
     return wait.until(EC.presence_of_element_located((element)))
 
 def take_screenshot(driver, filename):
@@ -37,5 +37,5 @@ def validate_text(actual, expected):
         print(f"Text matched successfully!! \nActual : '{actual}'\nExpected : '{expected}'")
         return True
     else:
-        print(f"Text matched successfully!! \nActual : '{actual}'\nExpected : '{expected}'")
+        print(f"Text is not matched!! \nActual : '{actual}'\nExpected : '{expected}'")
         return False
