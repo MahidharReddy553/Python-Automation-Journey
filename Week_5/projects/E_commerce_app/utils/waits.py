@@ -14,3 +14,7 @@ def wait_for_clickable(driver, element, timeout = DEFAULT_TIMEOUT):
 def wait_for_presence(driver, element, timeout = DEFAULT_TIMEOUT):
     wait = WebDriverWait(driver, timeout)
     return wait.until(EC.presence_of_element_located((element)))
+
+def wait_for_eles_visibility(driver, element, timeout = DEFAULT_TIMEOUT):
+    wait = WebDriverWait(driver, timeout)
+    return wait.until(EC.visibility_of_all_elements_located((element)))

@@ -1,7 +1,8 @@
 from selenium import webdriver
-from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.by import By
-from utils import wait_for_visibility, wait_for_clickable, validate_url, take_screenshot, validate_text
+from utils.waits import wait_for_visibility, wait_for_clickable
+from utils.validations import validate_text, validate_url
+from utils.take_screenshot import take_screenshot
 
 def login(driver, username, password):
     driver.get("https://www.saucedemo.com/")
@@ -77,4 +78,4 @@ def logout():
         else:
             print("Login Failed!!!")
 
-logout()
+# logout()
