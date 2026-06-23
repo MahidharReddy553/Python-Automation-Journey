@@ -40,7 +40,6 @@ with webdriver.Chrome() as driver:
             print(i + 1, ':', j)
 
     def remove_product(cart, product_name):
-        """Remove product by name using relative XPath instead of input()."""
         wait_for_clickable(driver, (By.CLASS_NAME, "shopping_cart_link")).click()
         remove_btn = driver.find_element(
             By.ID,
@@ -52,7 +51,7 @@ with webdriver.Chrome() as driver:
         driver.refresh()
         cart_validation()
 
-    # Example run
+    
     login(driver, "standard_user", "secret_sauce")
     assert "inventory.html" in driver.current_url, "Product page is loaded"
 
@@ -64,5 +63,4 @@ with webdriver.Chrome() as driver:
     cart = cart_validation()
     view_cart(cart)
 
-    # Remove a product by name directly (no input())
     cart = remove_product(cart, "Sauce Labs Backpack")
