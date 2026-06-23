@@ -5,10 +5,13 @@ from utils.validations import validate_text, validate_url
 from utils.take_screenshot import take_screenshot
 
 def login(driver, username, password):
-    driver.get("https://www.saucedemo.com/")
+    # driver.get("https://www.saucedemo.com/")
     wait_for_visibility(driver, (By.ID, "user-name")).send_keys(username)
     wait_for_visibility(driver, (By.ID, "password")).send_keys(password)
     wait_for_clickable(driver, (By.ID, "login-button")).click()
+    if validate_url(driver.current_url, "inventory"):
+        return True
+    return False
 
 def positive_login():
     with webdriver.Chrome() as driver:
