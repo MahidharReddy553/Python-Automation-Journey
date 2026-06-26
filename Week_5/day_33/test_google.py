@@ -2,7 +2,9 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from utils.waits import wait_for_clickable
+from selenium.webdriver.support.ui import WebDriverWait as wait
+from selenium.webdriver.support import expected_conditions as EC
+
 
 
 def test_google():
@@ -79,8 +81,8 @@ def test_logout():
         driver.find_element(By.ID, "password").send_keys("secret_sauce")
         driver.find_element(By.ID, "login-button").click()
         assert "inventory" in driver.current_url, f"Login Failed you are at {driver.current_url} URL"
-        wait_for_clickable(driver, (By.ID, "react-burger-menu-btn")).click()
-        wait_for_clickable(driver, (By.ID, "logout_sidebar_link")).click()
+        wait(driver,10).until(EC.element_to_be_clickable((By.ID, "react-burger-menu-btn"))).click()
+        wait(driver,10).until(EC.element_to_be_clickable((By.ID, "logout_sidebar_link"))).click()
         assert driver.current_url == "https://www.saucedemo.com/", f"Logout Failed you are at {driver.current_url}"
 
 # test_product_count()
