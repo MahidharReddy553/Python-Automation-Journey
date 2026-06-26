@@ -86,8 +86,6 @@ def test_logout():
         assert driver.current_url == "https://www.saucedemo.com/", f"Logout Failed you are at {driver.current_url}"
 
 # test_product_count()
-
-
 # To run these functions all at a time => pytest
 # Example:
 # ============= test session starts ==============
