@@ -2,6 +2,7 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from utils.waits import wait_for_clickable
 
 
 def test_google():
@@ -22,6 +23,7 @@ def test_saucedemo_login():
 
     assert "inventory" in driver.current_url, "Unable to login"
     print("Login success")
+    driver.quit()
 
 # test_saucedemo_login()
 
@@ -39,6 +41,7 @@ def test_invalid_login():
 
     assert "do not match" in msg.text, "Login success"
     print("Invalid credentials")
+    driver.quit()
 
 # test_invalid_login()
 
@@ -55,6 +58,30 @@ def test_product_count():
 
     assert len(products) == 6, f"Expected 6 products, found {len(products)}"
     print(f"The total length of products: {len(products)}")
+    driver.quit()
+
+
+def test_product_exists():
+    with webdriver.Chrome() as driver:
+        driver.get("https://www.saucedemo.com/")
+        driver.find_element(By.ID, "user-name").send_keys("standard_user")
+        driver.find_element(By.ID, "password").send_keys("secret_sauce")
+        driver.find_element(By.ID, "login-button").click()
+        assert "inventory" in driver.current_url, f"Login Failed you are at {driver.current_url} URL"
+        products = driver.find_elements(By.CLASS_NAME, "inventory_item_name")
+        products = [product.text for product in products]
+        assert "Sauce Labs Bike Light" in products, "Product Not exists in the inventory"
+
+def test_logout():
+    with webdriver.Chrome() as driver:
+        driver.get("https://www.saucedemo.com/")
+        driver.find_element(By.ID, "user-name").send_keys("standard_user")
+        driver.find_element(By.ID, "password").send_keys("secret_sauce")
+        driver.find_element(By.ID, "login-button").click()
+        assert "inventory" in driver.current_url, f"Login Failed you are at {driver.current_url} URL"
+        wait_for_clickable(driver, (By.ID, "react-burger-menu-btn")).click()
+        wait_for_clickable(driver, (By.ID, "logout_sidebar_link")).click()
+        assert driver.current_url == "https://www.saucedemo.com/", f"Logout Failed you are at {driver.current_url}"
 
 # test_product_count()
 
