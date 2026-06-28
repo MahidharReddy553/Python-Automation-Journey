@@ -4,23 +4,23 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-@pytest.fixture
-## Browser fixture
-def browser_fixture():
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    yield driver
-    driver.quit()
+# @pytest.fixture
+# ## Browser fixture
+# def browser_fixture():
+#     driver = webdriver.Chrome()
+#     driver.maximize_window()
+#     yield driver
+#     driver.quit()
 
 
-@pytest.fixture
-def login_fixture(browser_fixture):
-    browser_fixture.get("https://www.saucedemo.com")
-    browser_fixture.find_element(By.ID, "user-name").send_keys("standard_user")
-    browser_fixture.find_element(By.ID, "password").send_keys("secret_sauce")
-    browser_fixture.find_element(By.ID, "login-button").click()
+# @pytest.fixture
+# def login_fixture(browser_fixture):
+#     browser_fixture.get("https://www.saucedemo.com")
+#     browser_fixture.find_element(By.ID, "user-name").send_keys("standard_user")
+#     browser_fixture.find_element(By.ID, "password").send_keys("secret_sauce")
+#     browser_fixture.find_element(By.ID, "login-button").click()
 
-    return browser_fixture
+#     return browser_fixture
 
 def test_products(login_fixture):
     products = login_fixture.find_elements(By.CLASS_NAME, "inventory_item")
