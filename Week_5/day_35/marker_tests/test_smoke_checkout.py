@@ -16,7 +16,7 @@ def test_checkout(login_fixture_for_all):
     login_fixture_for_all.find_element(By.CLASS_NAME, "shopping_cart_link").click()
     assert "cart.html" in login_fixture_for_all.current_url, "Wrong page"
     print("Cart page displayed")
-
+ 
     # checkout page
     login_fixture_for_all.find_element(By.ID, "checkout").click()
     assert "checkout-step-one" in login_fixture_for_all.current_url, "Checkout page not displayed"
