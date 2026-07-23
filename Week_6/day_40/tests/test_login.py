@@ -30,3 +30,4 @@ def test_locked_user(browser_fixture):
     # Step 2: Returns the error message
     msg = log_page.get_error_msg()
     assert "Epic sadface: Sorry, this user has been locked out." in msg, "No error msg"
+
