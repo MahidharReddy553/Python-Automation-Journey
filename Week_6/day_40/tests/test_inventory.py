@@ -19,3 +19,4 @@ def test_inventory_item_count_and_titles(browser_fixture):
     product_names = inventory_page.get_product_names()
     assert len(product_names) == 6, "Product names list count mismatch"
     assert "Sauce Labs Backpack" in product_names, "Expected 'Sauce Labs Backpack' in inventory list"
+    
