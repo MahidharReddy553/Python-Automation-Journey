@@ -12,6 +12,9 @@ def test_successful_login(browser_fixture):
     log_page = LoginPage(browser_fixture)
     log_page.login(ConfigReader.get_username("standard_user"), ConfigReader.get_password())
 
+    # Testing the code for failure
+    # assert "WRONG TEXT" == "Sauce Labs Backpack"
+
     # Step 2: Verifies the inventory page loaded
     inv_page = InventoryPage(browser_fixture)
     assert inv_page.is_inventory_loaded() is True, "Unable to load the inventory page"
@@ -30,4 +33,3 @@ def test_locked_user(browser_fixture):
     # Step 2: Returns the error message
     msg = log_page.get_error_msg()
     assert "Epic sadface: Sorry, this user has been locked out." in msg, "No error msg"
-
