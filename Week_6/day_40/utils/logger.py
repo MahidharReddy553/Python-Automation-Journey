@@ -1,6 +1,7 @@
 import os
 import logging
 from datetime import datetime
+import sys
 
 class CustomLogger:
     """Singleton Logger class to provide a unified logger instance across the framework."""
@@ -31,12 +32,12 @@ class CustomLogger:
             datefmt="%Y-%m-%d %H:%M:%S")
 
         # File Handler - Writes logs to text file
-        file_handler = logging.FileHandler(log_file_path)
+        file_handler = logging.FileHandler(log_file_path, encoding="utf-8")
         file_handler.setFormatter(log_format)
         logger.addHandler(file_handler)
 
         # Stream Handler - Prints logs to terminal console
-        console_handler = logging.StreamHandler()
+        console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setFormatter(log_format)
         logger.addHandler(console_handler)     
         return logger   
