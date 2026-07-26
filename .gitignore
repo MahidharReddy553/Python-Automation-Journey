@@ -18,3 +18,4 @@ dist/
 # Ignore logs and temporary files
 *.log
 *.tmp
+allure-results
