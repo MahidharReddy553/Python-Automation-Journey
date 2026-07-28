@@ -19,3 +19,4 @@ dist/
 *.log
 *.tmp
 allure-results
+__init__.py
