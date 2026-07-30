@@ -1,0 +1,69 @@
+2026-07-30 18:15:39,822 [INFO] (conftest.py:8) - HTTP Session has started..
+2026-07-30 18:15:39,823 [INFO] (test_crud.py:14) - --- STARTING TEST: test_create_user ---
+2026-07-30 18:15:39,824 [INFO] (payloads.py:37) - Successfully loaded payload key 'create_user' from users.json
+2026-07-30 18:15:39,824 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] POST https://jsonplaceholder.typicode.com/users
+2026-07-30 18:15:40,783 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 201 | Time: 956.42ms
+2026-07-30 18:15:40,784 [INFO] (assertions.py:8) - Asserting Status Code: Expected [201], Got [201]
+2026-07-30 18:15:40,784 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [2.0s], Actual [0.96s]
+2026-07-30 18:15:40,786 [INFO] (assertions.py:18) - Asserting key 'name' exists in response
+2026-07-30 18:15:40,786 [INFO] (assertions.py:27) - Asserting field 'name': Expected [peter parker], Got [peter parker]
+2026-07-30 18:15:40,786 [INFO] (assertions.py:18) - Asserting key 'job' exists in response
+2026-07-30 18:15:40,787 [INFO] (assertions.py:27) - Asserting field 'job': Expected [air force], Got [air force]
+2026-07-30 18:15:40,787 [INFO] (test_crud.py:31) - Successfully created user with ID: 11
+2026-07-30 18:15:40,791 [INFO] (test_crud.py:40) - --- STARTING TEST: test_get_single_user ---
+2026-07-30 18:15:40,792 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] GET https://jsonplaceholder.typicode.com/users/2
+2026-07-30 18:15:40,990 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 196.8ms
+2026-07-30 18:15:40,991 [INFO] (assertions.py:8) - Asserting Status Code: Expected [200], Got [200]
+2026-07-30 18:15:40,991 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [1.5s], Actual [0.20s]
+2026-07-30 18:15:40,991 [INFO] (assertions.py:18) - Asserting key 'id' exists in response
+2026-07-30 18:15:40,992 [INFO] (assertions.py:27) - Asserting field 'id': Expected [2], Got [2]
+2026-07-30 18:15:40,995 [INFO] (test_crud.py:59) - --- STARTING TEST: test_update_user ---
+2026-07-30 18:15:40,996 [INFO] (payloads.py:37) - Successfully loaded payload key 'update_user' from users.json
+2026-07-30 18:15:40,996 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] PUT https://jsonplaceholder.typicode.com/users/2
+2026-07-30 18:15:41,446 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 447.12ms
+2026-07-30 18:15:41,446 [INFO] (assertions.py:8) - Asserting Status Code: Expected [200], Got [200]
+2026-07-30 18:15:41,447 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [2.0s], Actual [0.45s]
+2026-07-30 18:15:41,447 [INFO] (assertions.py:18) - Asserting key 'name' exists in response
+2026-07-30 18:15:41,448 [INFO] (assertions.py:27) - Asserting field 'name': Expected [spiderman], Got [spiderman]
+2026-07-30 18:15:41,448 [INFO] (assertions.py:18) - Asserting key 'job' exists in response
+2026-07-30 18:15:41,448 [INFO] (assertions.py:27) - Asserting field 'job': Expected [web developer], Got [web developer]
+2026-07-30 18:15:41,453 [INFO] (test_crud.py:78) - --- STARTING TEST: test_partially_update_user ---
+2026-07-30 18:15:41,454 [INFO] (payloads.py:37) - Successfully loaded payload key 'patch_user' from users.json
+2026-07-30 18:15:41,454 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] PATCH https://jsonplaceholder.typicode.com/users/2
+2026-07-30 18:15:41,736 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 279.79ms
+2026-07-30 18:15:41,736 [INFO] (assertions.py:8) - Asserting Status Code: Expected [200], Got [200]
+2026-07-30 18:15:41,736 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [2.0s], Actual [0.28s]
+2026-07-30 18:15:41,737 [INFO] (assertions.py:18) - Asserting key 'job' exists in response
+2026-07-30 18:15:41,737 [INFO] (assertions.py:27) - Asserting field 'job': Expected [matrix architect], Got [matrix architect]
+2026-07-30 18:15:41,741 [INFO] (test_crud.py:96) - --- STARTING TEST: test_delete_user ---
+2026-07-30 18:15:41,742 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] DELETE https://jsonplaceholder.typicode.com/users/2
+2026-07-30 18:15:42,020 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 277.8ms
+2026-07-30 18:15:42,021 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [1.5s], Actual [0.28s]
+2026-07-30 18:15:42,024 [INFO] (test_crud.py:115) - --- STARTING TEST: test_get_non_existent_user ---
+2026-07-30 18:15:42,025 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] GET https://jsonplaceholder.typicode.com/users/239999
+2026-07-30 18:15:42,216 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 404 | Time: 190.17ms
+2026-07-30 18:15:42,217 [INFO] (assertions.py:8) - Asserting Status Code: Expected [404], Got [404]
+2026-07-30 18:15:42,220 [INFO] (test_crud.py:127) - --- STARTING TEST: test_create_user_invalid_payload ---
+2026-07-30 18:15:42,221 [INFO] (payloads.py:37) - Successfully loaded payload key 'invalid_user' from users.json
+2026-07-30 18:15:42,222 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] POST https://jsonplaceholder.typicode.com/users
+2026-07-30 18:15:42,494 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 201 | Time: 271.54ms
+2026-07-30 18:15:42,497 [INFO] (test_users.py:14) - --- STARTING TEST: test_get_users_list_pagination ---
+2026-07-30 18:15:42,498 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] GET https://jsonplaceholder.typicode.com/users
+2026-07-30 18:15:42,948 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 449.56ms
+2026-07-30 18:15:42,949 [INFO] (assertions.py:8) - Asserting Status Code: Expected [200], Got [200]
+2026-07-30 18:15:42,949 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [1.5s], Actual [0.45s]
+2026-07-30 18:15:42,952 [INFO] (test_users.py:34) - --- STARTING TEST: test_get_single_user ---
+2026-07-30 18:15:42,952 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] GET https://jsonplaceholder.typicode.com/users/2
+2026-07-30 18:15:43,145 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 200 | Time: 191.5ms
+2026-07-30 18:15:43,145 [INFO] (assertions.py:8) - Asserting Status Code: Expected [200], Got [200]
+2026-07-30 18:15:43,146 [INFO] (assertions.py:39) - Asserting Response Time: Allowed max [1.5s], Actual [0.19s]
+2026-07-30 18:15:43,146 [INFO] (assertions.py:18) - Asserting key 'id' exists in response
+2026-07-30 18:15:43,146 [INFO] (assertions.py:27) - Asserting field 'id': Expected [2], Got [2]
+2026-07-30 18:15:43,149 [INFO] (test_users.py:51) - --- STARTING TEST: test_create_and_verify_user ---
+2026-07-30 18:15:43,150 [INFO] (payloads.py:37) - Successfully loaded payload key 'create_user' from users.json
+2026-07-30 18:15:43,150 [INFO] (api_client.py:26) - --> [OUTGOING REQUEST] POST https://jsonplaceholder.typicode.com/users
+2026-07-30 18:15:43,426 [INFO] (api_client.py:45) - <-- [INCOMING RESPONSE] Status: 201 | Time: 274.15ms
+2026-07-30 18:15:43,426 [INFO] (assertions.py:8) - Asserting Status Code: Expected [201], Got [201]
+2026-07-30 18:15:43,426 [INFO] (assertions.py:18) - Asserting key 'name' exists in response
+2026-07-30 18:15:43,427 [INFO] (assertions.py:27) - Asserting field 'name': Expected [peter parker], Got [peter parker]
+2026-07-30 18:15:43,427 [INFO] (conftest.py:11) - HTTP Session has closed..
