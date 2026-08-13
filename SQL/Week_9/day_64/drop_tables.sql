@@ -1,0 +1,9 @@
+DROP TABLE departments;
+DROP TABLE departments_sandbox;
+DROP TABLE depts_test;
+DROP TABLE emp_test;
+DROP TABLE employee_projects;
+DROP TABLE employees;
+DROP TABLE employees_sandbox;
+DROP TABLE emps_test;
+DROP TABLE projects;
