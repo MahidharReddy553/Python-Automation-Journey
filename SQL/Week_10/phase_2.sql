@@ -45,3 +45,69 @@ employee_projects ep on ep.project_id = p.project_id
 INNER JOIN
 employees e on e.emp_id = ep.emp_id
 GROUP BY p.project_id HAVING SUM(e.salary) > 100000;
+
+-- 34. Explain the difference between UNION and UNION ALL in terms of performance and output set handling
+-- UNION: Combines datasets and performs an internal distinct/sort operation to remove duplicates, which requires higher memory and CPU cost.
+-- UNION ALL: Combines datasets without checking for duplicates, making it substantially faster.
+
+-- 35. Write a query to find all employees who work in the 'Headquarters' location by joining Employees and Departments.
+SELECT e.emp_id, e.full_name, d.location FROM employees e
+INNER JOIN
+departments d on e.dept_id = d.dept_id
+where d.location = 'Headquarters';
+-- 36. Create a CHECK constraint concept: Write the SQL snippet to alter the Projects table so that budget cannot be negative or zero.
+ALTER TABLE Projects MODIFY budget DECIMAL(10,2) CHECK (budget > 0);
+-- 37. Find all departments that have no employees assigned to them using a LEFT JOIN.
+SELECT e.emp_id, e.full_name, d.dept_id FROM departments d
+LEFT JOIN
+employees e on e.dept_id = d.dept_id
+WHERE e.emp_id IS NULL;
+-- 38. Display the total number of projects each employee is assigned to. Include the employee's full_name and order the output by project count descending.
+SELECT 
+    e.emp_id,
+    e.full_name,
+    COUNT(ep.project_id) AS project_count
+FROM Employees e
+LEFT JOIN Employee_Projects ep ON e.emp_id = ep.emp_id
+GROUP BY e.emp_id, e.full_name
+ORDER BY project_count DESC;
+
+-- 39. What is the purpose of the DEFAULT constraint? What value gets inserted if no explicit value or DEFAULT keyword is supplied during an INSERT statement?
+-- The DEFAULT constraint provides a predefined value for a column when no value is provided during an INSERT. If omitted and no default is defined, the column receives NULL (or an error if marked NOT NULL).
+
+-- 40. Write a query using a subquery in the FROM clause (derived table) to calculate the average of department salary averages.
+SELECT ROUND(AVG(s.AVG_salary), 2) as AVG_salary from (SELECT AVG(salary) as AVG_salary FROM employees e
+                                        INNER JOIN
+                                        departments d on d.dept_id = e.dept_id) s;
+SELECT ROUND(AVG(dept_avg), 2) AS overall_dept_avg
+FROM (
+    SELECT dept_id, AVG(salary) AS dept_avg
+    FROM Employees
+    GROUP BY dept_id
+) AS DeptWiseSal;
+-- 41.Identify any employees who share the exact same salary as at least one other employee in a different department.
+SELECT e1.emp_id, e1.full_name, e1.salary FROM employees e1 WHERE (SELECT COUNT(e2.salary) FROM employees e2 where e1.salary = e2.salary AND e1.dept_id <> e2.dept_id) >= 1;
+SELECT e1.emp_id, e1.full_name, e1.dept_id, e1.salary FROM Employees e1
+INNER JOIN Employees e2 
+ON e1.salary = e2.salary
+AND e1.dept_id <> e2.dept_id;
+SELECT e1.emp_id, e1.full_name, e1.dept_id, e1.salary
+FROM Employees e1
+WHERE EXISTS (
+    SELECT 1
+    FROM Employees e2
+    WHERE e1.salary = e2.salary
+      AND e1.dept_id <> e2.dept_id
+);
+
+-- 42. What happens to child table records when a parent record is deleted if the foreign key specifies ON DELETE SET NULL? What rule must the child column follow for this to work?
+-- When the parent row is deleted, the foreign key column in the corresponding child records is set to NULL.
+-- Rule: The child table column must allow NULL values (cannot have a NOT NULL constraint).
+
+-- 43. Find all projects whose name starts with 'Alpha' or ends with 'Beta'.
+SELECT * FROM projects WHERE project_name like 'Alpha%Beta';
+-- 44. Write a query to count the total number of distinct managers currently supervising at least one employee.
+SELECT COUNT(DISTINCT e1.emp_id) AS Emp_count FROM employees e1
+WHERE EXISTS
+(SELECT 1 FROM employees e2
+WHERE e2.manager_id = e1.emp_id);
