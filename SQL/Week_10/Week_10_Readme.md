@@ -29,4 +29,5 @@ These exercises build the foundation for integrating MySQL with Python automatio
 
 ---
 ✨ *Week 10 builds a solid foundation for database-driven automation projects.*
+*Connected MySql with python to access data from the database to the code*
 
