@@ -1,74 +1,69 @@
-# ===== 1. Multi-Item Bill with Tiered Discount =====
+## Basic Functions Implementation
 
-def calculate_final_bill(item_prices: list, tax_rate: int):
-    sub_total = 0
-    for price in item_prices:
-        sub_total += price
-
-    # Conditional Discount
-    if sub_total > 1000:
-        discount_percent = 0.10
-    elif 500 <= sub_total <= 1000:
-        discount_percent = 0.05
+def check_number(n):
+    if n == 0:
+        return "Zero"
+    elif n < 0:
+        return "Negative"
     else:
-        discount_percent = 0.0
+        return "Positive"
+# print(check_number(2))
+# print(check_number(0))
+# print(check_number(-2))
 
-    # Discount
-    discount_subtotal = sub_total * (1 - discount_percent)
-    tax_amount = discount_subtotal * (tax_rate / 100)
-    total_tax_percent = discount_subtotal + tax_amount
-    return round(total_tax_percent, 2)
-
-# print(calculate_final_bill([23, 45, 89, 44, 55], 5))
-
-
-# ===== 2. Vowel, Consonant, and Digit Tally =====
-def analyze_text(sentence):
-    seg_dict = {"vowels": 0, "consonants": 0, "digits": 0, "spaces": 0}
-    vowels = "aeiou"
-
-    for char in sentence.strip():
-        low_char = char.lower()
-        if low_char in vowels:
-            seg_dict["vowels"] += 1
-        elif low_char.isalpha() and low_char not in vowels:
-            seg_dict["consonants"] += 1
-        elif char.isdigit():
-            seg_dict["digits"] += 1
-        elif char == ' ':
-            seg_dict["spaces"] += 1
-
-    return seg_dict 
-
-# print(analyze_text("Expecto Patronum from Harry Potter 7684054"))
-
-
-# ===== 3. Prime Number Checker and Range Generator =====
-def is_prime(n):
-    if n == 0 or n == 1:
-        return False
-    elif n == 2:
-        return True
+def check_even_odd(n):
+    if n == 1:
+        return "Neither Odd Nor Even"
     elif n % 2 == 0:
-        return False
+        return "Even"
+    else:
+        return "Odd"
+# print(check_even_odd(1))
+# print(check_even_odd(2))
+# print(check_even_odd(43))
 
-    for i in range(2, int(n**0.5)+1):
-        if n % i == 0:
-            return False
-    return True
+def largest_of_two_num(n1, n2):
+    if n1 > n2:
+        return "n1 is greater than n2"
+    elif n1 < n2:
+        return "n2 is greater than n1"
+    else:
+        return "n1 and n2 are equal"
+# print(largest_of_two_num(2, 5))
+# print(largest_of_two_num(4, 1))
+# print(largest_of_two_num(4, 4))
 
-def get_primes_in_range(start, end):
-    primes = []
-    for p in range(start, end + 1):
-        if is_prime(p):
-            primes.append(p)
+def largest_of_three_num(n1, n2, n3):
+    if n1 > n2 and n1 > n3:
+        return "n1 is greater"
+    elif n2 > n1 and n2 > n3:
+        return "n2 is greater"
+    elif n3 > n1 and n3 > n2:
+        return "n3 is greater"
+    else:
+        return "all are equal"
+# print(largest_of_three_num(0, 2, 3))
+# print(largest_of_three_num(3, 2, 1))
 
-    return primes
+def div_with_5(n):
+    if n % 5 == 0:
+        return f"{n} is divisible by 5"
+    else:
+        return f"{n} is not divisible by 5"
+# print(div_with_5(3))
+# print(div_with_5(0))
+# print(div_with_5(5))
 
-prime_num1 = is_prime(2)
-prime_num2 = is_prime(1)
-prime_num3 = is_prime(4)
-prime_num4 = is_prime(5)
-range_num = get_primes_in_range(2, 5)
-print(prime_num1, prime_num2, prime_num3, prime_num4)
-print(range_num)
+def age_cat(age):
+    if age < 13:
+        print("Child")
+    elif 13 <= age <= 19:
+        print("Teenager")
+    elif 20 <= age <= 59:
+        print("Adult")
+    else:
+        print("Senior")
+# print(age_cat(3))
+# print(age_cat(13))
+# print(age_cat(23))
+# print(age_cat(63))
